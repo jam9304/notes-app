@@ -33,4 +33,15 @@ describe('Page view', () => {
     expect(document.querySelectorAll('.note')[0].innerText).toBe('Hey');
     expect(document.querySelectorAll('.note')[1].innerText).toBe('Hello');
   });
+
+  it ('clears the text box after note has been added', () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+    const model = new NotesModel();
+    const view = new NotesView(model);
+    const addButtonEl = document.querySelector('#submit');
+    const inputEl = document.querySelector('#message-input');
+    inputEl.value = 'Hey';
+    addButtonEl.click();
+    expect(document.querySelector('#message-input').value).toBe("");
+  });
 });

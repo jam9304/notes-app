@@ -3,10 +3,11 @@ class NotesView {
     this.model = model;
     this.mainContainer = document.querySelector('#main-container');
     this.addButtonEl = document.querySelector('#submit');
-    this.inputEl = document.querySelector('#message-input')
+    this.inputEl = document.querySelector('#message-input');
 
     this.addButtonEl.addEventListener('click', () => {
       this.model.addNote(this.inputEl.value)
+      this.clearMessageInput();
       this.removeAllNotes();
       this.displayNotes();
     });
@@ -28,7 +29,10 @@ class NotesView {
     currentNotes.forEach(noteEl => {
       noteEl.remove();
     });
+  };
 
+  clearMessageInput() {
+    this.inputEl.value = null;
   };
 
 };
