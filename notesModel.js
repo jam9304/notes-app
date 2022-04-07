@@ -3,6 +3,11 @@ class NotesModel {
     this.notes = [];
   };
 
+  setNotes(notesFromBackend) {
+    console.log('Im here')
+    this.notes = notesFromBackend
+  };
+
   getNotes() {
     return this.notes;
   };

@@ -32,4 +32,11 @@ describe('Notes model', () => {
     expect(notes.getNotes()).toEqual([]);
   });
 
+  it('should add all notes from the backend server', () => {
+    const model = new NotesModel;
+    const notesFromBackend = ["Get Milk"]
+    model.setNotes(notesFromBackend);
+    expect(model.getNotes()).toEqual(["Get Milk"])
+  })
+
 });

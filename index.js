@@ -1,14 +1,17 @@
 const NotesModel = require('./notesModel');
 const ViewModel = require('./notesView')
+const NotesApi = require('./notesApi')
 
-const notes = new NotesModel;
-const view = new ViewModel(notes);
+const model = new NotesModel;
+const view = new ViewModel(model, api);
+const api = new NotesApi();
 
-
-
-// console.log('The notes app is running')
-// console.log(notes.getNotes());
-// console.log(notes.addNote("First Note"));
-// console.log(notes.getNotes());
-// console.log(notes.reset());
-// console.log(notes.getNotes());
+// api.loadNotes()
+// // model.setNotes(api.loadNotes())
+// // view.displayNotes()
+api.loadNotes((notes) => {
+  // This method is new — you'll need to add it to the model class
+  console.log("Im here")
+  model.setNotes(notes);
+  view.displayNotes();
+})
