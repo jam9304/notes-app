@@ -4,7 +4,6 @@ class NotesModel {
   };
 
   setNotes(notesFromBackend) {
-    console.log('Im here')
     this.notes = notesFromBackend
   };
 

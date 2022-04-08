@@ -1,12 +1,17 @@
 class NotesView {
-  constructor(model) {
+  constructor(model, api) {
     this.model = model;
+    this.api = api
     this.mainContainer = document.querySelector('#main-container');
     this.addButtonEl = document.querySelector('#submit');
     this.inputEl = document.querySelector('#message-input');
 
     this.addButtonEl.addEventListener('click', () => {
       this.model.addNote(this.inputEl.value)
+      this.api.createNote(this.inputEl.value, (response) => {
+        //to fulfill the promise
+      });
+      console.log('DO YOU SEE THAT I MADE IT BOYZ???');
       this.clearMessageInput();
       this.removeAllNotes();
       this.displayNotes();
